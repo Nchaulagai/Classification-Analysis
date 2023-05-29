@@ -1,16 +1,27 @@
-# Analysis of Shell Bidding Data Set on eBay
+# Classification Analysis of Shell Bidding Dataset on eBay
 
-This classification analysis focuses on the detection of shill bidding, which is the fraudulent practice of placing fake bids on auction items to artificially inflate their prices. The data set used for this analysis is the Shell Bidding data set from eBay. 
+Shill bidding, the act of placing fake bids on an auction item to artificially increase its price, is a concerning issue in online marketplaces like eBay. In this analysis, we aim to perform a detailed classification analysis on the Shell Bidding dataset obtained from eBay. The dataset contains various features that can help us identify instances of shill bidding.
 
-The analysis begins with an Exploratory Data Analysis (EDA) to gain insights into the data and understand its characteristics. Afterward, four different classification techniques are employed to detect shill bidding in the data set:
+To start with the analysis, we perform Exploratory Data Analysis (EDA) to gain insights into the dataset's structure and characteristics. We explore the distribution of variables, identify outliers, and examine any patterns or relationships between variables. This step allows us to better understand the dataset and make informed decisions during the subsequent analysis.
 
-1. Logistic Regression: A popular linear classification algorithm that models the relationship between the dependent variable and independent variables using a logistic function.
-2. Decision Tree Classifier: A non-parametric classification algorithm that constructs a tree-like model by partitioning the data based on feature values.
-3. Random Forest Classifier: An ensemble learning method that combines multiple decision trees to improve prediction accuracy.
-4. XGBoost Classifier: An optimized gradient boosting algorithm that is highly effective for classification tasks.
+Next, we address the issue of missing values in the dataset. Missing values can significantly impact the analysis and modeling process. We employ suitable techniques to fill in the missing values, ensuring that the dataset is complete and ready for further analysis.
 
-For each of these classification techniques, GridSearchCV is used to tune the model's hyperparameters and optimize their performance. The evaluation metrics considered for the analysis include accuracy, confusion matrix, precision, recall, F1 score, and ROC AUC score. These metrics provide a comprehensive understanding of each model's performance in detecting shill bidding.
+To gain a comprehensive understanding of the relationships between variables, we construct a Missing Values Ratio (MSNO) matrix. The MSNO matrix visualizes the patterns of missing values, enabling us to identify any systematic patterns or dependencies between variables. This step aids in uncovering potential biases and making informed decisions regarding feature selection and data preprocessing.
 
-To validate the findings and ensure the robustness of the models, K-fold Cross Validation is applied. This technique divides the data set into K subsets, trains and tests the models K times, and provides average performance metrics across the folds. By using K-fold Cross Validation, we can assess the generalization capabilities of the models and obtain more reliable results.
+To prepare the dataset for classification modeling, we apply the MinMax Scaler. This scaling technique brings all the features within a specific range, preserving the relationships between variables while avoiding any potential biases introduced by different scales.
 
-Through this comprehensive analysis, we aim to develop effective models for shill bidding detection, enabling eBay and other auction platforms to identify and prevent fraudulent activities, ensuring a fair and trustworthy marketplace for all users.
+Moreover, we utilize label encoding to transform categorical variables into numeric representations. This process enables us to incorporate categorical features into our classification models effectively.
+
+For the classification analysis, we employ four popular techniques:
+1. Logistic Regression
+2. Decision Tree Classifier
+3. Random Forest Classifier
+4. XGBoost Classifier
+
+To determine the best hyperparameters for each classifier, we employ GridSearchCV, which exhaustively searches through a specified parameter grid to identify the optimal combination of parameters for each classifier. This approach ensures that our models are fine-tuned and yield the best possible results.
+
+To evaluate the performance of our classifiers, we calculate various metrics, including accuracy, confusion matrix, precision, recall, F1 score, and ROC AUC score. These metrics provide insights into the classifiers' effectiveness in accurately predicting instances of shill bidding.
+
+Furthermore, we apply K-fold Cross Validation to validate our findings. This technique splits the dataset into K subsets and performs multiple iterations of training and testing on different subsets. By averaging the results across these iterations, we obtain a more robust evaluation of our models' performance.
+
+In summary, this analysis aims to detect instances of shill bidding in the Shell Bidding dataset obtained from eBay. Through EDA, missing value handling, feature scaling, label encoding, and the application of four classification techniques, we strive to build accurate and reliable models for identifying shill bidding. The evaluation metrics and cross-validation provide a comprehensive assessment of the models' performance and validity.
